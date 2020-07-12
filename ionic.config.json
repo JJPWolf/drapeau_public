@@ -1,0 +1,7 @@
+{
+  "name": "jeu_drapeau",
+  "integrations": {
+    "capacitor": {}
+  },
+  "type": "angular"
+}
