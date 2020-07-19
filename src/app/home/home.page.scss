@@ -25,3 +25,26 @@
 #container a {
   text-decoration: none;
 }
+
+.bg_color{
+  //background-color: black;
+  //--background:linear-gradient(#28ba62, #36abe0, #4854e0);
+  --background:linear-gradient(#28ba62 , #42d77d);
+}
+ion-button{
+  width: 50%;
+  margin: 20px;
+  height: 50px;
+}
+ion-img{
+  height: 30%;
+  width: 30%;
+  display: block;
+  margin-left: auto;
+  margin-right: auto;
+  margin-top: 75px;
+}
+
+.div_button{
+  margin : 200px
+}

@@ -1,0 +1,25 @@
+<ion-header>
+  <ion-toolbar>
+    <ion-title>jeu</ion-title>
+  </ion-toolbar>
+</ion-header>
+
+
+<ion-content class = "bg_color">
+  <ion-label style="position:absolute;top:20px;left:20px;" color="light">Temps : {{this.secondes}}</ion-label>
+  <ion-label style="position:absolute;top:20px;right:20px;" color="light">Tours : {{this.nbTours}}/20</ion-label>
+  <ion-img [src]="pays.drapeau"></ion-img>
+  <ion-input type="text" placeholder="Nom du pays" id="id_input"></ion-input>
+  <ion-button  id="button1" color="primary" (click)="onValiderButton($event)"  hidden>Bouton 1</ion-button>
+  <ion-button  id="button2" color="primary" (click)="onValiderButton($event)"  hidden>Bouton 2</ion-button>
+  <br>
+  <ion-button  id="button3" color="primary" (click)="onValiderButton($event)" hidden>Bouton 3</ion-button>
+  <ion-button  id="button4" color="primary" (click)="onValiderButton($event)" hidden>Bouton 4</ion-button>
+  <div id="container">
+    <ion-button color="success" (click)="onValiderInput()" id="btn_valider">VALIDER</ion-button>
+  </div>
+  <ion-label id="id_label_reponse" style="color:red;"></ion-label>
+  <br>
+  <ion-label color="light">{{this.score}}</ion-label>
+</ion-content>
+

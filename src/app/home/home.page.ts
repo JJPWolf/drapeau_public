@@ -1,4 +1,5 @@
 import { Component } from '@angular/core';
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-home',
@@ -7,6 +8,18 @@ import { Component } from '@angular/core';
 })
 export class HomePage {
 
-  constructor() {}
+  logo_src = '/assets/img/logo.png';
+  image;
+  constructor(private router : Router) {}
+
+  onCommencerDifficile(){
+    this.router.navigate(['jeu_difficile']);
+  }
+  onCommencerNormal(){
+    this.router.navigate(['jeu_normal']);
+  }
+  onCommencerFacile(){
+    this.router.navigate(['jeu_facile']);
+  }
 
 }
