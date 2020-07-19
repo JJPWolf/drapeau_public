@@ -9,8 +9,19 @@ ion-img{
 .bg_color{
     //background-color: black;
     //--background:linear-gradient(#28ba62, #36abe0, #4854e0);
-    --background:linear-gradient(#28ba62 , #42d77d);
+    --background:#ff4400b7;
   }
+
+
+  ion-button{
+    width: 100%;
+    margin: 20px;
+    height: 50px;
+  }
+
+.div_button{
+  margin : 100px
+}
 /*ion-input{
     position: relative;
     height: 60px;

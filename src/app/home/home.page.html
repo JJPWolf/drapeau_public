@@ -1,23 +1,11 @@
-<!--<ion-header [translucent]="true">
-  <ion-toolbar>
-    <ion-title>
-      Le jeu des drapeaux
-    </ion-title>
-  </ion-toolbar>
-</ion-header> -->
 
 <ion-content [fullscreen]="true" class="bg_color">
-  <ion-header collapse="condense">
-    <ion-toolbar>
-      <ion-title size="large">Blank</ion-title>
-    </ion-toolbar>
-  </ion-header>
   <ion-img [src]="this.logo_src" style></ion-img>
   <div id="container" class="div_button">
-    <ion-button color="primary" (click)="onCommencerFacile()">Mode facile <ion-icon name="play"></ion-icon></ion-button>
+    <ion-button color="primary" (click)="onCommencerFacile()" shape="round" size="large" strong>MODE FACILE <ion-icon name="play"></ion-icon></ion-button>
     <br>
-    <ion-button color="primary" (click)="onCommencerNormal()">Mode normal <ion-icon name="play"></ion-icon></ion-button>
+    <ion-button color="primary" (click)="onCommencerNormal()" shape="round" size="large" strong>MODE NORMAL <ion-icon name="play"></ion-icon></ion-button>
     <br>
-    <ion-button color="primary" (click)="onCommencerDifficile()">Mode difficile <ion-icon name="play"></ion-icon></ion-button>
+    <ion-button color="primary" (click)="onCommencerDifficile()" shape="round" size="large" strong>MODE DIFFICILE <ion-icon name="play"></ion-icon></ion-button>
   </div>
 </ion-content>
