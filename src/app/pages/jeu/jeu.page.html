@@ -8,18 +8,17 @@
 
 
 <ion-content class = "bg_color">
-  <ion-label style="position:absolute;top:20px;left:20px;" color="light">Temps : {{this.secondes}}</ion-label>
-  <ion-label style="position:absolute;top:20px;right:20px;" color="light">Tours : {{this.nbTours}}/20</ion-label>
+  <ion-label style="position:absolute;top:20px;left:20px;color: #00006B;" >Temps : {{this.secondes}}</ion-label>
+  <ion-label style="position:absolute;top:20px;right:20px;color: #00006B;">Tours : {{this.nbTours}}/20</ion-label>
   <ion-img [src]="pays.drapeau"></ion-img>
   <ion-label id="id_label_reponse" style="color:red;font-weight: bold;" strong></ion-label>
   <br>
-  <ion-label color="light">{{this.score}}</ion-label>
+  <ion-label style="color: #00006B;">{{this.score}}</ion-label>
   <br>
   <ion-input type="text" placeholder="Nom du pays" id="id_input"></ion-input>
   <div id="container_btn" class="div_button">
     <ion-button  id="button1" color="primary" (click)="onValiderButton($event)"  shape="round"  hidden>Bouton 1</ion-button>
     <ion-button  id="button2" color="primary" (click)="onValiderButton($event)"  shape="round"  hidden>Bouton 2</ion-button>
-    <br>
     <ion-button  id="button3" color="primary" (click)="onValiderButton($event)" shape="round"  hidden>Bouton 3</ion-button>
     <ion-button  id="button4" color="primary" (click)="onValiderButton($event)" shape="round"  hidden>Bouton 4</ion-button>
     <ion-button color="success" (click)="onValiderInput()" id="btn_valider" size="large" shape="round" strong >VALIDER</ion-button>
