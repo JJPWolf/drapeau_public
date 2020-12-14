@@ -27,13 +27,14 @@ export class JeuPage implements OnInit {
 
 
   ngOnInit() {
-    
-    console.log(window.location.pathname);
+    this.jeuService.pays_deja_fais = [];
     this.pays = new Pays("nom","sigle","drapeau");
     this.jeuService.init_country();
-    this.paysSub = this.jeuService.paysSubject.subscribe(
+    this.paysSub = this.jeuService.paysSubject.subscribe( // le  sub s'active à chaque fois que la valeur change pas que dans ngOnInit
       (pays:Pays)=>{
         this.pays=pays;
+        //this.jeuService.pays_deja_fais = [];
+        //this.jeuService.pays_deja_fais.push(pays);
         this.initJeu();
       }
     );
@@ -70,7 +71,6 @@ export class JeuPage implements OnInit {
     }
   }
   onValiderReponse(reponse : string){
-    console.log(reponse);
     clearInterval(this.interval);
     clearTimeout(this.timer);
     
@@ -98,15 +98,16 @@ export class JeuPage implements OnInit {
     clearInterval(this.interval);
     let self =this;
     this.interval = setInterval(function(){self.secondes--;}, 1000);
-    console.log(this.interval);
     this.timer = setTimeout(()=>{
       document.getElementById("btn_valider").click();
  }, 10000);
   }
 
   ionViewWillLeave() {
+    this.jeuService.pays_deja_fais = [];
     clearInterval(this.interval);
     clearTimeout(this.timer);
+    this.paysSub.unsubscribe();
 } 
 
 onValiderButton(event){
@@ -162,7 +163,6 @@ reponseDifficile(reponse : string){
 
   }else{
     let self = this;
-    console.log("La réponse était : "+this.pays.nom);
     (<HTMLLabelElement>document.getElementById('id_label_reponse')).innerHTML = "La réponse était : "+this.pays.nom;
     if(this.nbTours<20){
       (<HTMLButtonElement>document.getElementById('btn_valider')).disabled = true; 
@@ -188,8 +188,8 @@ reponseNormale(reponse : string){
     this.score+=500;
     if(this.nbTours<20){
       this.jeuService.myLoop();
-      this.jeuService.change_country();
-      this.initButtonsNormal();
+      //this.jeuService.change_country();
+      //this.initButtonsNormal();
       this.timer_jeu();
     }else{
       
@@ -201,7 +201,6 @@ reponseNormale(reponse : string){
     }
   }else{
     let self = this;
-    console.log("La réponse était : "+this.pays.nom);
     (<HTMLLabelElement>document.getElementById('id_label_reponse')).innerHTML = "La réponse était : "+this.pays.nom;
     if(this.nbTours<20){
       (<HTMLButtonElement>document.getElementById('button1')).disabled=true;
@@ -214,8 +213,8 @@ reponseNormale(reponse : string){
         (<HTMLButtonElement>document.getElementById('button3')).disabled=false;
         (<HTMLButtonElement>document.getElementById('button4')).disabled=false;
         self.jeuService.myLoop();
-        self.jeuService.change_country();
-        self.initButtonsNormal();
+        //self.jeuService.change_country();
+        //self.initButtonsNormal();
         self.timer_jeu();
         //(<HTMLInputElement>document.getElementById('id_input')).value="";
         (<HTMLLabelElement>document.getElementById('id_label_reponse')).innerHTML = "";                        
@@ -238,8 +237,8 @@ reponseFacile(reponse : string){
     this.score+=500;
     if(this.nbTours<20){
       this.jeuService.myLoop();
-      this.jeuService.change_country();
-      this.initButtonsFacile();
+      //this.jeuService.change_country();
+      //this.initButtonsFacile();
       this.timer_jeu();
     }else{
       
@@ -249,7 +248,6 @@ reponseFacile(reponse : string){
     }
   }else{
     let self = this;
-    console.log("La réponse était : "+this.pays.nom);
     (<HTMLLabelElement>document.getElementById('id_label_reponse')).innerHTML = "La réponse était : "+this.pays.nom;
     if(this.nbTours<20){
       (<HTMLButtonElement>document.getElementById('button1')).disabled=true;
@@ -258,8 +256,8 @@ reponseFacile(reponse : string){
         (<HTMLButtonElement>document.getElementById('button1')).disabled=false;
         (<HTMLButtonElement>document.getElementById('button2')).disabled=false;
         self.jeuService.myLoop();
-        self.jeuService.change_country();
-        self.initButtonsFacile();
+        //self.jeuService.change_country();
+        //self.initButtonsFacile();
         self.timer_jeu();
         //(<HTMLInputElement>document.getElementById('id_input')).value="";
         (<HTMLLabelElement>document.getElementById('id_label_reponse')).innerHTML = "";                        

@@ -33,6 +33,7 @@ export class JeuService {
 
     init_country(){
         this.pays=[];
+        this.pays_deja_fais=[];
         this.nbTours=1;
         this.httpService.get_data().subscribe((data)=>{
             let result = [];
@@ -40,7 +41,7 @@ export class JeuService {
                     const newPays : Pays = new Pays(data[i], i, (this.httpService.baseroute+this.flagDirectory+i.toLowerCase())+'.svg' );
                     this.pays.push(newPays);
             }
-            this.change_country();
+            //this.change_country();
             this.myLoop();
         });
     }
@@ -92,7 +93,6 @@ export class JeuService {
     verifReponse(reponse){
         reponse = (reponse.normalize("NFD").replace(/[\u0300-\u036f]/g, "")).toUpperCase();
         let nomPays = ((this.paysEnCours.nom).normalize("NFD").replace(/[\u0300-\u036f]/g, "")).toUpperCase();
-        console.log(reponse,nomPays);
         return(reponse==nomPays);
         
     }
